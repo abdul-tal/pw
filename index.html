@@ -22,10 +22,25 @@
 
       if ('serviceWorker' in navigator) {
         addEventListener('load', async () => {
-          let sw = await navigator.serviceWorker.register('./sw.js');
+          let sw = await navigator.serviceWorker.register('./push-worker.js');
           console.log(sw);
         });
       }
     </script>
+    <script type="text/javascript">
+      // 86acbd31cd7c09cf30acb66d2fbedc91daa48b86:1661266792.7283144
+      !function(n,r,e,t,c){var i,o="Promise"in n,u={then:function(){return u},catch:function(n){
+      return n(new Error("Airship SDK Error: Unsupported browser")),u}},s=o?new Promise((function(n,r){i=function(e,t){e?r(e):n(t)}})):u
+      ;s._async_setup=function(n){if(o)try{i(null,n(c))}catch(n){i(n)}},n[t]=s;var a=r.createElement("script");a.src=e,a.async=!0,a.id="_uasdk",
+      a.rel=t,r.head.appendChild(a)}(window,document,'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
+        'UA', {
+          vapidPublicKey: 'BEhAhDAiRdJSxWzy0AVRuu17DiBTf37mr7g3TBcpzPTbb8lDWnoumKr9wXsecCn-YUh7l5SdrfuOk_Pen4moggc=',
+          
+          
+          appKey: '2ieSnJLsT3GZgrNuILEqpQ',
+          token: 'MToyaWVTbkpMc1QzR1pnck51SUxFcXBROm9aenhPTEtfcWdTUEhzenFwa3B2OXpyOE0xY201blpZNTd6d0g0UzhuVjQ'
+        });
+      
+      </script>
   </body>
 </html>
