@@ -8,12 +8,12 @@
     <!-- <script type="module", src="./fb.js"></script> -->
   </head>
   <body>
-    
+    <button onclick="subscribe()">Subscribe....</button>
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
-      import { getMessaging } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js"
+      import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js"
 
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -43,16 +43,17 @@
           Notification.requestPermission().then(permission => {
               console.log('permission: ', permission);
               if(permission === 'granted') {
-                  messaging.getToken({
-                      vapidKey: "BPp3xNvnrzHn6xU6RcChIQDi7GZlkcFlNZPaNJtolahGZbeBGYyrIya5rFEm2o61kc55OQWa-vp8dfKdILOavhI"
+                console.log('getToken', getToken)
+                  getToken(messaging, {
+                      vapidKey: "BGdQF9AfPCbW5CNJgqmrzE_TMICsuyGeN0qmqwtbSUkok7fMODyLwzbLwwTAv9DEhC47M7EkjLNDSX0owAtnPoY"
                   }).then(currentToken => {
                       console.log('currentToken: ', currentToken)
-                  })
+                  }).catch(err => console.log('errr', err))
               }
           })
       }
+      window.subscribe = subscribe;
     </script>
-    <button onclick="subscribe()">Subscribe....</button>
     <!-- <button onclick="subscribe()">Subscribe</button>
 
     <script>
